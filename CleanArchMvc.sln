@@ -18,6 +18,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wiki", "Wiki", "{1148A446-2217-439B-AAE8-4152D323211B}"
+	ProjectSection(SolutionItems) = preProject
+		Wiki\ComunicaçãoCamadasAltoNível.png = Wiki\ComunicaçãoCamadasAltoNível.png
+		Wiki\FluxoProcessamentoRequisiçãoServiços.png = Wiki\FluxoProcessamentoRequisiçãoServiços.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +53,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1148A446-2217-439B-AAE8-4152D323211B} = {A3BCE7F3-B152-45F5-8080-3F97F2D00B9E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D712D824-222A-48EC-8C2F-56484D837B4A}

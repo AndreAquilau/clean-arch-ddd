@@ -62,7 +62,7 @@ public class ProductService : IProductService
 
         if (productResponse != null)
         {
-            productResponse = await _productRepository.UpdateAsync(productActual, productDTO.Id);
+            productResponse = await _productRepository.UpdateAsync(productActual);
         }
 
         return _mapper.Map<ProductDTO>(productResponse);

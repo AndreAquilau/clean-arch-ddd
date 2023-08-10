@@ -58,7 +58,7 @@ public class CategoryService : ICategoryService
 
         if(categoryActual != null)
         {
-            categoryResponse = await _categoryRepository.UpdateCategoryAsync(categoryActual, category.Id);
+            categoryResponse = await _categoryRepository.UpdateCategoryAsync(categoryActual);
         }
 
         return _mapper.Map<CategoryDTO>(categoryResponse);

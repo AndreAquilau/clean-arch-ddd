@@ -10,7 +10,7 @@ var configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddInfrastructure(builder.Configuration);
-builder.Services.AddAutoMapper(typeof(ProfileConfiguration));
+builder.Services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 
