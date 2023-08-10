@@ -58,9 +58,9 @@ public class CategoryRepository : ICategoryRepository
         return category;
     }
 
-    public async Task<Category> UpdateCategoryAsync(Category category, int id)
+    public async Task<Category> UpdateCategoryAsync(Category category)
     {
-        var categoryActualState = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
+        var categoryActualState = await _context.Categories.FirstOrDefaultAsync(c => c.Id == category.Id);
 
         if (categoryActualState == null)
         {

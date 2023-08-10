@@ -55,10 +55,10 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity>
         return dataById;
     }
 
-    public async Task<TEntity> UpdateAsync(TEntity obj, int id)
+    public async Task<TEntity> UpdateAsync(TEntity obj)
     {
 
-        var dataById = await _context.Set<TEntity>().FirstOrDefaultAsync(x => x.Id == id);
+        var dataById = await _context.Set<TEntity>().FirstOrDefaultAsync(x => x.Id == obj.Id);
 
         if (obj == null)
         {

@@ -12,6 +12,6 @@ public interface IGenericRepository<TEntity>
     Task<TEntity> CreateAsync(TEntity obj);
     Task<IEnumerable<TEntity>> GetAllAsync();
     Task<TEntity> GetByIdAsync(int id);
-    Task<TEntity> UpdateAsync(TEntity obj, int id);
+    Task<TEntity> UpdateAsync(TEntity obj);
     Task<TEntity> RemoveAsync(int id);
 }

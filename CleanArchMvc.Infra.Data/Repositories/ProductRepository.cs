@@ -77,9 +77,9 @@ public class ProductRepository : IProductRepository
         return products;
     }
 
-    public async Task<Product> UpdateAsync(Product product, int id)
+    public async Task<Product> UpdateAsync(Product product)
     {
-        var dataProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+        var dataProduct = await _context.Products.FirstOrDefaultAsync(p => p.Id == product.Id);
 
         if (dataProduct == null)
         {
