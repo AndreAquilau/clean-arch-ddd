@@ -39,9 +39,7 @@ public class CategoryService : ICategoryService
     public async Task<IEnumerable<CategoryDTO>> GetCategories()
     {
         var categories = await _categoryRepository.GetCategoriesAsync();
-        var categoriesDTO = categories.Select(obj => _mapper.Map<CategoryDTO>(obj));
-
-        return categoriesDTO;
+        return _mapper.Map<IEnumerable<CategoryDTO>>(categories);
     }
 
     public async Task<CategoryDTO?> Remove(int id)

@@ -37,7 +37,7 @@ public class ProductService : IProductService
     {
         var products = await _productRepository.GetAllAsync();
 
-        return products.Select(p => _mapper.Map<ProductDTO>(p));
+        return _mapper.Map<IEnumerable<ProductDTO>>(products);
     }
 
     public async Task<ProductDTO?> Remove(int id)
