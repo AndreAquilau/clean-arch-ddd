@@ -1,4 +1,6 @@
 
+![Comunicação entre as Camadas](./Wiki/ComunicaçãoCamadasAltoNível.png "Comunicação Camadas Alto Nível")
+
 ```sql
 dotnet ef migrations list --project CleanArchMvc.Infra.Data/ -s CleanArchMvc.Application/
 ```
