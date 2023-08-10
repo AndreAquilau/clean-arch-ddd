@@ -17,7 +17,7 @@ public class CategoryService : ICategoryService
 
     public CategoryService(ICategoryRepository categoryRepository, IMapper mapper)
     {
-        _categoryRepository = categoryRepository;
+        _categoryRepository = categoryRepository ?? throw new NullReferenceException(nameof(categoryRepository));
         _mapper = mapper;
     }
 

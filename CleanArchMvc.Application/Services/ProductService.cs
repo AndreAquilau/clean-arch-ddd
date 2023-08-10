@@ -15,7 +15,7 @@ public class ProductService : IProductService
     public ProductService(IProductRepository productRepository, IMapper mapper)
     {
         _mapper= mapper;
-        _productRepository= productRepository;
+        _productRepository= productRepository ?? throw new NullReferenceException(nameof(productRepository));
     }
 
     public async Task<ProductDTO> Add(ProductDTO productDTO)
