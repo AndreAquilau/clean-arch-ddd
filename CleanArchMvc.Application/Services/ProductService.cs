@@ -32,6 +32,12 @@ public class ProductService : IProductService
 
         return _mapper.Map<ProductDTO>(product);
     }
+    public async Task<ProductDTO?> GetProductCategoryById(int id)
+    {
+        var product = await _productRepository.GetProducCategoreAsync(id);
+
+        return _mapper.Map<ProductDTO>(product);
+    }
 
     public async Task<IEnumerable<ProductDTO>> GetProducts()
     {
