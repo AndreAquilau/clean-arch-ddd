@@ -1,6 +1,7 @@
 using AutoMapper;
 using CleanArchMvc.Application.DTOs;
 using CleanArchMvc.Application.Interfaces;
+using CleanArchMvc.Domain.Entities;
 using CleanArchMvc.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -20,14 +21,19 @@ public class CategoryService : ICategoryService
         _mapper = mapper;
     }
 
-    Task ICategoryService.Add(CategoryDTO category)
+    public async Task<CategoryDTO?> Add(CategoryDTO categoryDTO)
     {
-        throw new NotImplementedException();
+        var category = _mapper.Map<Category>(categoryDTO);
+        var createCategory = await _categoryRepository.CreateCategoryAsync(category);
+
+        return _mapper.Map<CategoryDTO>(createCategory);
     }
 
-    Task<CategoryDTO> ICategoryService.GetById(int id)
+    public async Task<CategoryDTO?> GetById(int id)
     {
-        throw new NotImplementedException();
+        var takeCategory = await _categoryRepository.GetByIdAsync(id);
+
+        return _mapper.Map<CategoryDTO>(takeCategory);
     }
 
     public async Task<IEnumerable<CategoryDTO>> GetCategories()
@@ -38,13 +44,26 @@ public class CategoryService : ICategoryService
         return categoriesDTO;
     }
 
-    Task ICategoryService.Remove(int id)
+    public async Task<CategoryDTO?> Remove(int id)
     {
-        throw new NotImplementedException();
+        var category = await _categoryRepository.DeleteCategoryAsync(id);
+
+        return _mapper.Map<CategoryDTO>(category);
     }
 
-    Task ICategoryService.Update(CategoryDTO category)
+    public async Task<CategoryDTO?> Update(CategoryDTO category)
     {
-        throw new NotImplementedException();
+        var categoryActual = await _categoryRepository.GetByIdAsync(category.Id);
+        _mapper.Map(category, categoryActual);
+
+        Category? categoryResponse = null;
+
+        if(categoryActual != null)
+        {
+            categoryResponse = await _categoryRepository.UpdateCategoryAsync(categoryActual, category.Id);
+        }
+
+        return _mapper.Map<CategoryDTO>(categoryResponse);
+
     }
 }
